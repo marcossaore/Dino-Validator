@@ -10,7 +10,7 @@
     "jestSetup": "jest --passWithNoTests --silent --noStackTrace --runInBand --bail",
     "test": "yarn jestSetup --watch",
     "test:staged": "yarn jestSetup --findRelatedTests",
-    "test:ci": "yarn test --coverage",
+    "test:ci": "yarn jestSetup --coverage",
     "test:verbose": "jest --passWithNoTests --runInBand"
   },
   "devDependencies": {
