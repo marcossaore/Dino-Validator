@@ -1,5 +1,5 @@
-import { TypeParamError } from '@/presentation/errors'
-import { Validation } from '@/presentation/protocols/validation'
+import { TypeParamError } from '../../presentation/errors'
+import { Validation } from '../../presentation/protocols/validation'
 
 type AllowedTypes = 'string' | 'number' | 'boolean' | 'array' | 'object'
 

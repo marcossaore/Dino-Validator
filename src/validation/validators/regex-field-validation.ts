@@ -1,5 +1,5 @@
-import { RegexParamError } from '@/presentation/errors'
-import { Validation } from '@/presentation/protocols/validation'
+import { RegexParamError } from '../../presentation/errors'
+import { Validation } from '../../presentation/protocols/validation'
 
 export class RegexFieldValidation implements Validation {
   constructor (

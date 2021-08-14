@@ -40,12 +40,6 @@
   "engines": {
     "node": "14.x"
   },
-  "_moduleAliases": {
-    "@": "dist"
-  },
-  "dependencies": {
-    "module-alias": "^2.2.2"
-  },
   "directories": {
     "test": "tests"
   },

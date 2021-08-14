@@ -1,4 +1,4 @@
-import { Validation } from '@/presentation/protocols/validation'
+import { Validation } from '../../presentation/protocols/validation'
 import { LengthFieldValidation } from '../validators/length-field-validation'
 import { RegexFieldValidation } from '../validators/regex-field-validation'
 import { RequiredFieldValidation } from '../validators/required-field-validation'

@@ -1,5 +1,5 @@
-import { MinLenghtParamError, MinMaxLenghtParamError } from '@/presentation/errors'
-import { Validation } from '@/presentation/protocols/validation'
+import { MinLenghtParamError, MinMaxLenghtParamError } from '../../presentation/errors'
+import { Validation } from '../../presentation/protocols/validation'
 
 export class LengthFieldValidation implements Validation {
   constructor (
