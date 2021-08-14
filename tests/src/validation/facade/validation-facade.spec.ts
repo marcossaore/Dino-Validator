@@ -135,7 +135,13 @@ describe('Validation Facade', () => {
         match: /42i/
       }
     })
-    expect(sut.validate).toThrow()
+    try {
+      sut.validate({
+        alphanumeric: '42i'
+      })
+    } catch (error) {
+      expect(error.message).toBe('matchMessage must be provided!')
+    }
   })
 
   test('should return a MinMaxLenghtCustomMessage if minMaxLengthMessage is provided', () => {
