@@ -37,20 +37,22 @@ export class ValidationFacade implements Validation {
         continue
       }
 
-      if (paramProperties.type) {
-        this.validations.push(new TypeFieldValidation(paramName, paramProperties.type))
+      const { type, minLength, maxLength, minMaxLengthMessage, match, matchMessage } = paramProperties
+
+      if (type) {
+        this.validations.push(new TypeFieldValidation(paramName, type))
       }
 
-      if (paramProperties.minLength) {
-        this.validations.push(new LengthFieldValidation(paramName, paramProperties.minLength, paramProperties.maxLength))
-        this.addCustomMessage(paramName, paramProperties.minMaxLengthMessage)
+      if (minLength) {
+        this.validations.push(new LengthFieldValidation(paramName, minLength, maxLength))
+        this.addCustomMessage(paramName, minMaxLengthMessage)
       }
 
-      if (paramProperties.match) {
-        if (!paramProperties.matchMessage) {
+      if (match) {
+        if (!matchMessage) {
           throw new Error('matchMessage must be provided!')
         }
-        this.validations.push(new RegexFieldValidation(paramName, paramProperties.match, paramProperties.matchMessage))
+        this.validations.push(new RegexFieldValidation(paramName, match, matchMessage))
       }
     }
 
