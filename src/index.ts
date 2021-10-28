@@ -1,2 +1,2 @@
-export * from './main/dino-validator-type'
-export * from './main/dino-validator-factory'
+export * from './main/odin-validator-type'
+export * from './main/odin-validator-factory'

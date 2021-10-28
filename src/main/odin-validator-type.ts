@@ -1,6 +1,6 @@
 type AllowedTypes = 'string' | 'number' | 'boolean' | 'array' | 'object'
 
-export type DinoValidationModel = {
+export type OdinValidationModel = {
   [key: string]: {
     required?: boolean
     type?: AllowedTypes

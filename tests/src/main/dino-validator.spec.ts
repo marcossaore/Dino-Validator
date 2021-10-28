@@ -1,14 +1,14 @@
-import { DinoValidator } from '@/main/dino-validator'
-import { DinoValidationModel } from '@/main/dino-validator-type'
+import { OdinValidator } from '@/main/odin-validator'
+import { OdinValidationModel } from '@/main/odin-validator-type'
 import { ValidationFacade } from '@/validation/facade/validation-facade'
 
-const makeSut = (dinoValidationModel: DinoValidationModel): DinoValidator => {
-  return new DinoValidator(dinoValidationModel)
+const makeSut = (odinValidationModel: OdinValidationModel): OdinValidator => {
+  return new OdinValidator(odinValidationModel)
 }
 
 jest.mock('@/validation/facade/validation-facade')
 
-const dinoModel: DinoValidationModel = {
+const odinModel: OdinValidationModel = {
   name: {
     required: true,
     type: 'string',
@@ -18,18 +18,18 @@ const dinoModel: DinoValidationModel = {
 }
 
 const input = {
-  name: 'Dino'
+  name: 'Odin'
 }
 
-describe('Dino Validator Factory', () => {
-  test('should call ValidationFacade with expected dino model', () => {
-    const sut = makeSut(dinoModel)
+describe('Odin Validator Factory', () => {
+  test('should call ValidationFacade with expected odin model', () => {
+    const sut = makeSut(odinModel)
     sut.validate(input)
-    expect(ValidationFacade).toHaveBeenCalledWith(dinoModel)
+    expect(ValidationFacade).toHaveBeenCalledWith(odinModel)
   })
 
-  test('should call ValidationFacade with expected dino model', () => {
-    const sut = makeSut(dinoModel)
+  test('should call ValidationFacade with expected odin model', () => {
+    const sut = makeSut(odinModel)
     const validationFacadeInstance = ValidationFacade as jest.Mock<ValidationFacade>
     const validateSpy = validationFacadeInstance.mock.instances[0].validate
     sut.validate(input)

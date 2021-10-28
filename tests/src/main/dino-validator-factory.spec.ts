@@ -1,7 +1,7 @@
-import { Dino } from '@/main/dino-validator-factory'
-import { DinoValidationModel } from '@/main/dino-validator-type'
+import { Odin } from '@/main/odin-validator-factory'
+import { OdinValidationModel } from '@/main/odin-validator-type'
 
-const dinoModel: DinoValidationModel = {
+const odinModel: OdinValidationModel = {
   name: {
     required: true,
     type: 'string',
@@ -11,37 +11,37 @@ const dinoModel: DinoValidationModel = {
 }
 
 const input = {
-  name: 'Dino'
+  name: 'Odin'
 }
 
 let buildSpy
 let validateSpy
 
-describe('Dino Validator Factory', () => {
+describe('Odin Validator Factory', () => {
   beforeEach(() => {
-    buildSpy = jest.spyOn(Dino, 'build')
-    validateSpy = jest.spyOn(Dino, 'validate')
+    buildSpy = jest.spyOn(Odin, 'build')
+    validateSpy = jest.spyOn(Odin, 'validate')
   })
 
-  test('should call Dino.build with correct params', () => {
-    Dino.build(dinoModel)
-    expect(buildSpy).toHaveBeenCalledWith(dinoModel)
+  test('should call Odin.build with correct params', () => {
+    Odin.build(odinModel)
+    expect(buildSpy).toHaveBeenCalledWith(odinModel)
   })
 
-  test('should call Dino.validate with correct params', () => {
-    Dino.validate(input)
+  test('should call Odin.validate with correct params', () => {
+    Odin.validate(input)
     expect(validateSpy).toHaveBeenCalledWith(input)
   })
 
   test('should return when receives an error', () => {
     jest.restoreAllMocks()
-    const error = Dino.build(dinoModel).validate({})
+    const error = Odin.build(odinModel).validate({})
     expect(error).toBeInstanceOf(Error)
   })
 
   test('should not return when succeds', () => {
     jest.restoreAllMocks()
-    const error = Dino.build(dinoModel).validate(input)
+    const error = Odin.build(odinModel).validate(input)
     expect(error).toBeFalsy()
   })
 })

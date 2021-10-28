@@ -1,5 +1,5 @@
 {
-  "name": "dino-validator",
+  "name": "odin-validator",
   "version": "1.0.3",
   "description": "A lib that helps you validate params in a blink of eye",
   "main": "dist/index.js",
@@ -42,7 +42,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/marcossaore/Dino-Validator.git"
+    "url": "git+https://github.com/marcossaore/Odin-Validator.git"
   },
   "keywords": [
     "validation",
@@ -57,7 +57,7 @@
     "headers validate"
   ],
   "bugs": {
-    "url": "https://github.com/marcossaore/Dino-Validator/issues"
+    "url": "https://github.com/marcossaore/Odin-Validator/issues"
   },
-  "homepage": "https://github.com/marcossaore/Dino-Validator#readme"
+  "homepage": "https://github.com/marcossaore/Odin-Validator#readme"
 }
