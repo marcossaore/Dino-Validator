@@ -28,7 +28,9 @@ export class ValidationFacade implements Validation {
     for (const [paramName, paramProperties] of Object.entries(this.validationModel)) {
       if (paramProperties.required) {
         this.validations.push(new RequiredFieldValidation(paramName))
-        this.addCustomMessage(paramName, paramProperties.requiredMessage)
+        if (paramProperties.requiredMessage) {
+          this.addCustomMessage(paramName, paramProperties.requiredMessage)
+        }
       }
 
       const inputValue = input[paramName] || null
@@ -39,13 +41,13 @@ export class ValidationFacade implements Validation {
 
       const { type, minLength, maxLength, minMaxLengthMessage, match, matchMessage } = paramProperties
 
-      if (type) {
-        this.validations.push(new TypeFieldValidation(paramName, type))
-      }
+      this.validations.push(new TypeFieldValidation(paramName, type))
 
       if (minLength) {
         this.validations.push(new LengthFieldValidation(paramName, minLength, maxLength))
-        this.addCustomMessage(paramName, minMaxLengthMessage)
+        if (minMaxLengthMessage) {
+          this.addCustomMessage(paramName, minMaxLengthMessage)
+        }
       }
 
       if (match) {
@@ -59,28 +61,20 @@ export class ValidationFacade implements Validation {
     const error = new ValidationComposite(this.validations).validate(input)
 
     if (error) {
-      return this.getErrorFromCustomMessages(error) || error
+      return this.getErrorFromCustomMessages() || error
     }
   }
 
   private addCustomMessage (paramName: string, messageError: string): void {
-    if (!messageError) {
-      return
-    }
-
     this.customMessages.push({
       paramName,
       genericMessageError: new GenericMessageError(messageError)
     })
   }
 
-  private getErrorFromCustomMessages (error): Error {
+  private getErrorFromCustomMessages (): Error {
     if (this.customMessages.length > 0) {
-      for (const customMessage of this.customMessages) {
-        if (error.message.search(customMessage.paramName)) {
-          return customMessage.genericMessageError
-        }
-      }
+      return this.customMessages[0].genericMessageError
     }
   }
 }
