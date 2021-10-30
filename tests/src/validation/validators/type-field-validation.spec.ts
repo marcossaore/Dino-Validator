@@ -22,4 +22,12 @@ describe('Type Field Validation', () => {
     const error = sut.validate(data)
     expect(error).toBeFalsy()
   })
+
+  test('should return a TypeParamError if param is a string instead of a date', () => {
+    const sut = makeSut('birthday', 'date')
+    const error = sut.validate({
+      birthday: 'wrong birthday'
+    })
+    expect(error).toEqual(new TypeParamError('birthday', 'date'))
+  })
 })
