@@ -1,4 +1,4 @@
-type AllowedTypes = 'string' | 'number' | 'boolean' | 'array' | 'object'
+type AllowedTypes = 'string' | 'number' | 'boolean' | 'array' | 'object' | 'date'
 
 export type OdinValidationModel = {
   [key: string]: {
