@@ -46,4 +46,12 @@ describe('Type Field Validation', () => {
     })
     expect(error).toBeFalsy()
   })
+
+  test('should not return if param is a valid date with format yyyy-mm-dd', () => {
+    const sut = makeSut('birthday', 'date')
+    const error = sut.validate({
+      birthday: '2021-08-09'
+    })
+    expect(error).toBeFalsy()
+  })
 })
