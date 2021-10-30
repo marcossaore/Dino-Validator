@@ -14,6 +14,7 @@ export class TypeFieldValidation implements Validation {
       if (isNaN(Date.parse(input[this.paramName]))) {
         return new TypeParamError(this.paramName, this.typeExpected)
       }
+      return
     }
     // eslint-disable-next-line valid-typeof
     if (typeof input[this.paramName] !== this.typeExpected) {
