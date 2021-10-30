@@ -1,6 +1,6 @@
 {
   "name": "odin-validator",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "description": "A lib that helps you validate params in a blink of eye",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
