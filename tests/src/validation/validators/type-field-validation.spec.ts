@@ -30,4 +30,12 @@ describe('Type Field Validation', () => {
     })
     expect(error).toEqual(new TypeParamError('birthday', 'date'))
   })
+
+  test('should return a TypeParamError if param is a not valid date (yyyy-mm-dd hh:mm)', () => {
+    const sut = makeSut('birthday', 'date')
+    const error = sut.validate({
+      birthday: '2021-13-51 12:00'
+    })
+    expect(error).toEqual(new TypeParamError('birthday', 'date'))
+  })
 })
